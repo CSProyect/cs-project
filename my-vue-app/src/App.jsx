@@ -8,7 +8,11 @@ function App() {
 
   return (
     <>
+
+      <h2>Chau</h2>
+
     <h1>Hola</h1>
+
     </>
   )
 }
