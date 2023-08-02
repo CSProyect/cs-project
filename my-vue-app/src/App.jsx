@@ -8,8 +8,12 @@ function App() {
 
   return (
     <>
+
+      <h2>Chau</h2>
+
     <h1>Hola</h1>
     <h4>Cualquier cosa</h4>
+    <h5>Otro cambio cualquiera</h5>
     </>
   )
 }
