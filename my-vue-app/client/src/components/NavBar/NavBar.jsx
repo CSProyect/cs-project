@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import React from "react";
+import React, { useState} from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,6 +16,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import { Paper } from '@mui/material';
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -23,6 +25,11 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  };
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -139,7 +146,21 @@ function NavBar() {
                 </MenuItem>
               ))}
             </Menu>
+
           </Box>
+          <Box>
+            <Paper component="form">
+      <IconButton onClick={toggleSearch}>
+        <SearchIcon />
+      </IconButton>
+      {searchOpen && (
+        <InputBase
+          placeholder="Buscar..."
+          // Aquí puedes agregar más propiedades al InputBase según tus necesidades
+        />
+      )}
+    </Paper>
+            </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -201,16 +222,7 @@ function NavBar() {
             </Menu>
           </Box>
         </Toolbar>
- {/*        <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search> */}
-          <h1>hola</h1>
+
       </Container>
     </AppBar>
   );
