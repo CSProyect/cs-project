@@ -1,5 +1,5 @@
-import * as React from 'react';
-/* import MyLogo from '../../assets/Logo.png'; */
+
+import React, { useState} from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,8 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-/* import AdbIcon from '@mui/icons-material/Adb'; */
 import SearchBar from '../SearchBar/SearchBar';
+import AdbIcon from '@mui/icons-material/Adb';
+import { styled, alpha } from '@mui/material/styles';
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+import { Paper } from '@mui/material';
 
 
 const pages = ['Home', 'Players', 'Maps', 'Stats'];
@@ -19,6 +23,11 @@ const pages = ['Home', 'Players', 'Maps', 'Stats'];
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -98,7 +107,22 @@ function NavBar() {
                 </MenuItem>
               ))}
             </Menu>
+
           </Box>
+          <Box>
+            <Paper component="form">
+      <IconButton onClick={toggleSearch}>
+        <SearchIcon />
+      </IconButton>
+      {searchOpen && (
+        <InputBase
+          placeholder="Buscar..."
+          // Aquí puedes agregar más propiedades al InputBase según tus necesidades
+        />
+      )}
+    </Paper>
+            </Box>
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
