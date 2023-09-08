@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'CSRegular';
+    src: url('../src/fonts/cs_regular.ttf') format('truetype');
+  }
+  
+@font-face {
+    font-family: 'Tahoma';
+    src: url('../src/fonts/Tahoma.ttf') format('truetype');
+  }

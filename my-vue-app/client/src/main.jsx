@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <NextUIProvider>
       <App />
     </NextUIProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
   </BrowserRouter>
 
 )
